@@ -17,13 +17,3 @@ data "azurerm_virtual_network" "hub-net" {
   name                = "${var.hub_vnet_name}"
   resource_group_name = "${var.hub_resourcegroup_name}"
 }
-
-resource "azurerm_virtual_network_peering" "spoke-to-hub" {
-  name                         = "spoke-${var.environment}-to-hub"
-  resource_group_name          = "${var.spoke_resourcegroup_name}"
-  virtual_network_name         = "${azurerm_virtual_network.spoke.name}"
-  remote_virtual_network_id    = "${data.azurerm_virtual_network.hub-net.id}"
-  allow_virtual_network_access = true
-  allow_gateway_transit        = false
-  allow_forwarded_traffic      = true
-}
