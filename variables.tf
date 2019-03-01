@@ -1,11 +1,3 @@
-variable "hub_resourcegroup_name" {
-  default = "hub"
-}
-
-variable "hub_vnet_name" {
-  default = "hub"
-}
-
 variable "spoke_resourcegroup_name" {
   default = "ace-test-spoke"
 }

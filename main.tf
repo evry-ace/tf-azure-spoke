@@ -12,8 +12,3 @@ resource "azurerm_virtual_network" "spoke" {
     "${var.spoke_address_space}",
   ]
 }
-
-data "azurerm_virtual_network" "hub-net" {
-  name                = "${var.hub_vnet_name}"
-  resource_group_name = "${var.hub_resourcegroup_name}"
-}
