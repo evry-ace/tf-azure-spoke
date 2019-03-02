@@ -25,5 +25,5 @@ output "spoke_subnet_id" {
     "${azurerm_virtual_network.spoke}",
   ]
 
-  value = "${azurerm_virtual_network.spoke}"
+  value = "${azurerm_virtual_network.spoke.id}"
 }
