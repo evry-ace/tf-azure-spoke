@@ -15,7 +15,7 @@ resource "azurerm_virtual_network" "spoke" {
 
 resource "azurerm_subnet" "spoke-subnet" {
   name                 = "${var.spoke_name}"
-  resource_group_name = "${azurerm_resource_group.spoke.name}"
+  resource_group_name  = "${azurerm_resource_group.spoke.name}"
   virtual_network_name = "${azurerm_virtual_network.spoke.name}"
   address_prefix       = "${var.spoke_address_space}"
 }
