@@ -12,3 +12,18 @@ resource "azurerm_virtual_network" "spoke" {
     "${var.spoke_address_space}",
   ]
 }
+
+resource "azurerm_subnet" "spoke-subnet" {
+  name                 = "${var.spoke_name}"
+  virtual_network_name = "${azurerm_virtual_network.spoke.name}"
+  address_prefix       = "${var.spoke_address_space}"
+}
+
+output "spoke_subnet_id" {
+  depends_on = [
+    "${azurerm_resource_group.spoke}",
+    "${azurerm_virtual_network.spoke}",
+  ]
+
+  value = "${azurerm_virtual_network.spoke}"
+}
